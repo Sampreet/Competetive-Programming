@@ -1,0 +1,45 @@
+#include<stdio.h>
+
+int main(){
+    int grid[20][20],maxi=0,i,j,prod;
+    for(i=0;i<20;i++)
+        for(j=0;j<20;j++)
+            scanf("%d",&grid[i][j]);
+    //down
+    for(i=0;i<17;i++){
+        for(j=0;j<20;j++){
+            prod=grid[i][j]*grid[i+1][j]*grid[i+2][j]*grid[i+3][j];
+            if(prod>maxi){
+                maxi=prod;
+            }
+        }
+    }
+    //diagonal1
+    for(i=0;i<17;i++){
+        for(j=0;j<17;j++){
+            prod=grid[i][j]*grid[i+1][j+1]*grid[i+2][j+2]*grid[i+3][j+3];
+            if(prod>maxi){
+                maxi=prod;
+            }
+        }
+    }
+    //right
+    for(i=0;i<20;i++){
+        for(j=0;j<17;j++){
+            prod=grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3];
+            if(prod>maxi){
+                maxi=prod;
+            }
+        }
+    }
+    //diagonal2
+    for(i=3;i<20;i++){
+        for(j=0;j<17;j++){
+            prod=grid[i][j]*grid[i-1][j+1]*grid[i-2][j+2]*grid[i-3][j+3];
+            if(prod>maxi){
+                maxi=prod;
+            }
+        }
+    }
+    printf("%d",maxi);
+}

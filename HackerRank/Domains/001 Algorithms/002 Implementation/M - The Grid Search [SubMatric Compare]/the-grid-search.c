@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+    char **matrix,**subMatrix,ch;
+    int t,R,C,r,c,i,j,I,J,mark;
+    scanf("%d",&t);
+    while(t--){
+        scanf("%d%d",&R,&C);
+        matrix=(char**)malloc((R)*sizeof(char*));
+        ch=getchar();
+        for(I=0;I<R;I++){
+            matrix[I]=(char*)malloc((C)*sizeof(char));
+            if(ch=='\n'){
+                ch=getchar();
+            }
+            for(J=0;J<C;J++){
+                matrix[I][J]=ch-'0';
+                ch=getchar();
+            }
+        }
+        scanf("%d%d",&r,&c);
+        subMatrix=(char**)malloc((r)*sizeof(char*));
+        ch=getchar();
+        for(i=0;i<r;i++){
+            subMatrix[i]=(char*)malloc((c)*sizeof(char));
+            if(ch=='\n'){
+                ch=getchar();
+            }
+            for(j=0;j<c;j++){
+                subMatrix[i][j]=ch-'0';
+                ch=getchar();
+            }
+        }
+        mark=1;
+        for(I=0;I<=R-r;I++){
+            for(J=0;J<=C-c;J++){
+                if(matrix[I][J]==subMatrix[0][0]){
+                    mark=0;
+                    for(i=0;i<r;i++){
+                        for(j=0;j<c;j++){
+                            if(matrix[i+I][j+J]!=subMatrix[i][j]){
+                                mark=1;
+                                break;
+                            }
+                        }
+                        if(mark==1){
+                            break;
+                        }
+                    }
+                }
+                if(mark==0)
+                    break;
+            }
+            if(mark==0)
+                break;
+        }
+        if(mark==0){
+            printf("YES\n");
+        }
+        else{
+            printf("NO\n");
+        }
+        free(subMatrix);
+        free(matrix);
+    }
+    return 0;
+}
