@@ -1,13 +1,15 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main() {
     int n;
     long long a, sum = 0;
-    scanf("%lld", &n);
+    cin >> n;
     while (n--) {
-        scanf("%lld", &a);
+        cin >> a;
         sum += a;
     }
-    printf("%lld", sum);
+    cout << sum;
     return 0;
 }

@@ -1,12 +1,15 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 void solveMeFirst(int a, int b) {
-    printf("%d", a + b);
+    cout << a + b;
 }
 
 int main() {
     int num1, num2;
-    scanf("%d %d", &num1, &num2);
+    int sum;
+    cin >> num1 >> num2;
     solveMeFirst(num1, num2);
     return 0;
 }

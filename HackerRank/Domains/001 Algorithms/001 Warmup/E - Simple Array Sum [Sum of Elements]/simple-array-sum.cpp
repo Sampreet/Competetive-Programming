@@ -1,12 +1,14 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main() {
     int n, a, sum = 0;
-    scanf("%d", &n);
+    cin >> n;
     while (n--) {
-        scanf("%d", &a);
+        cin >> a;
         sum += a;
     }
-    printf("%d", sum);
+    cout << sum;
     return 0;
 }

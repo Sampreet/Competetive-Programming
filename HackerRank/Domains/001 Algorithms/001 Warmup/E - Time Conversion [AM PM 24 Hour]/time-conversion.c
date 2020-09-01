@@ -1,28 +1,19 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main()
-{
-    int a[6]={},i;
-    char t;
-    scanf("%d:%d:%d%c%*c",&a[0],&a[2],&a[4],&t);
-    if(a[0]==12)
-    {
-        if(t=='A')
-            a[0]=0;
-        if(t=='P')
-            a[0]=12;
+int main() {
+    int hh, mm, ss, i;
+    char period;
+
+    scanf("%d:%d:%d%c%*c", &hh, &mm, &ss, &period);
+
+    if (hh == 12 && period == 'A') {
+        hh = 0;
     }
-    else
-    {
-        if(t=='P')
-            a[0]+=12;
+    if (hh != 12 && period == 'P') {
+        hh += 12;
     }
-    for(i=0;i<6;i+=2)
-    {
-        a[i+1]=a[i]%10;
-        a[i]/=10;
-    }
-    printf("%d%d:%d%d:%d%d",a[0],a[1],a[2],a[3],a[4],a[5]);
+
+    printf("%02d:%02d:%02d", hh, mm, ss);
     return 0;
 }
 
